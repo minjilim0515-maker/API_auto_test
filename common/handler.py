@@ -39,6 +39,12 @@ class ImageHandler:
             self.load_image()
         self.img = cv2.cvtColor(self.img, cv2.COLOR_BGR2GRAY)
         return self.img
+    
+    def img_to_binary(self, threshold=127):
+        if self.img is None:
+            self.load_image()
+        _, binary_img = cv2.threshold(self.img, threshold, 255, cv2.THRESH_BINARY)
+        return binary_img
 
 # 使用封装的类
 
