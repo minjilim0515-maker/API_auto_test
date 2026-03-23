@@ -60,7 +60,8 @@ class AdbCmd:
         return self.shell(f"am start -n {package_name}/{activity_name}")
     
     def delete_files(self, remote_path):
-        return self.shell(f"rm {remote_path}")
+        # 使用 rm -rf 删除所有文件，忽略不存在的错误
+        return self.shell(f"rm -rf {remote_path}")
     
     def get_img_name(self, remote_path):
         """获取远程路径下最新的图片文件名"""

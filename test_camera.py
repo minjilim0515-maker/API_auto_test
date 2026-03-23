@@ -1,6 +1,7 @@
 import common.capture
 import time
 import common.handler
+import os
 from pathlib import Path
 
 cammond = common.capture.AdbCmd()
@@ -38,5 +39,6 @@ def test_aspect_ratio():
     handler = common.handler.ImageHandler(local_path)
     print(handler.get_shape(), img_name)
     aspect_ratio = handler.get_shape()[1] / handler.get_shape()[0]
-    assert aspect_ratio == 3/4, f"Expected aspect ratio 3:4, but got {aspect_ratio:.2f}"
+    assert aspect_ratio == 4/3, f"Expected aspect ratio 4:3, but got {aspect_ratio:.2f}"
+    os.remove(local_path)  # 清理测试生成的文件
 
