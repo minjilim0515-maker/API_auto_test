@@ -42,3 +42,6 @@ def test_aspect_ratio():
     assert aspect_ratio == 4/3, f"Expected aspect ratio 4:3, but got {aspect_ratio:.2f}"
     os.remove(local_path)  # 清理测试生成的文件
 
+
+
+
